@@ -1,201 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bootstrap 4 Sidebar</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helperfin Dashboard</title>
 
-        <!-- Bootstrap 4 CSS -->
-        <link
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-            rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="latihanlayout.css">
+</head>
+<body>
 
-        <!-- FontAwesome untuk ikon -->
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-        <style>
-        .sidebar {
-            width: 250px;
-            height: 100vh;
-            background-color: #125589;
-            color: white;
-            padding: 20px;
-        }
-        .user-info {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        .user-icon {
-            font-size: 24px;
-            margin-left: 18px;
-        }
-        .user-text {
-            line-height: 1.2;
-            margin-left: 15px; /* Geser teks User ke kanan */
-        }
-        .text-muted {
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.7) !important;
-        }
-        .list-group-item {
-            background: transparent;
-            color: white;
-            border: none;
-            display: flex;
-            align-items: center;
-            padding-left: 20px;
-        }
-        .list-group-item i {
-            font-size: 18px;
-            width: 20px; /* Beri lebar agar ikon tetap sejajar */
-            text-align: center;
-        }
-        .list-group-item span {
-            margin-left: 10px; /* Geser teks ke kanan */
-        }
-        .list-group-item:hover {
-            background-color: #0c395b;
-            transition-duration:  0.3s;
-            border-radius: 8px;
-        }
-        .logout-btn {
-        margin-top: 455px; /* Memastikan tombol berada di bawah */
-        padding: 10px 15px;
-        background-color: #3a719d;
-        border-radius: 8px;
-        text-align: center;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        transition-duration:  0.3s;
-        }
-        .logout-btn i {
-        margin-right: 8px;
-        }
-        .logout-btn:hover {
-        background-color: rgba(255, 255, 255, 0.3);
-        }
-        .dashboard-container {
-        padding: 20px;
-        width: 100%;
-        }
-        h2 {
-        font-size: 24px;
-        font-weight: bold;
-        }
-        .filter-container {
-        margin-top: 15px;
-        }
-        .filter-options {
-        display: flex;
-        gap: 15px;
-        flex-wrap: wrap;
-        }
-        .filter-options select {
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        font-size: 14px;
-        }
-        .search-btn {
-        background-color: #003366;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 8px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        }
-        .search-btn i {
-        margin-right: 5px;
-        }
-        .no-result {
-        text-align: center;
-        margin-top: 30px;
-        }
-        .no-result img {
-        width: 250px;
-        }
-        .no-result p {
-        font-size: 18px;
-        font-weight: bold;
-        }
-    </style>
-    </head>
-    <body>
-
-        <div class="d-flex">
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <!-- User Info -->
-                <div class="user-info">
-                    <i class="fas fa-user user-icon"></i>
-                    <div class="user-text">
-                        <strong>User</strong>
-                        <div class="text-muted">user@gmail.com</div>
-                    </div>
-                </div>
-
-                <!-- Menu Sidebar -->
-                <ul class="list-group">
-                    <li class="list-group-item list-group-item-action">
-                        <i class="fas fa-clipboard"></i> <span>Helperlog</span>
-                    </li>
-                    <li class="list-group-item list-group-item-action">
-                        <i class="fas fa-search"></i> <span>Helperfind</span>
-                    </li>
-                    <li class="list-group-item list-group-item-action">
-                        <i class="fas fa-comments"></i>
-                        <span>Helperassist</span>
-                    </li>
-                    <a href="#" class="logout-btn">
-                        <i class="fas fa-sign-out-alt"></i> Log Out
-                    </a>
-                </ul>
+    <div class="wrapper">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <button class="toggle-btn" onclick="toggleSidebar()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
             </div>
+
+            <div class="user-info">
+                <i class="fas fa-user user-icon"></i>
+                <div class="user-text">
+                    <strong>User</strong>
+                    <div class="text-muted">user@gmail.com</div>
+                </div>
+            </div>
+
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-action">
+                    <i class="fas fa-clipboard"></i> <span>Helperlog</span>
+                </li>
+                <li class="list-group-item list-group-item-action active">
+                    <i class="fas fa-search"></i> <span>Helperfind</span>
+                </li>
+                <li class="list-group-item list-group-item-action">
+                    <i class="fas fa-comments"></i> <span>Helperassist</span>
+                </li>
+            </ul>
+
+            <a href="#" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> <span>Log Out</span>
+            </a>
         </div>
-        <div class="dashboard-container">
+
+        <div class="main-content">
             <h2>Helperfind Dashboard</h2>
 
             <div class="filter-container">
                 <label>Filter PRT Berdasarkan</label>
                 <div class="filter-options">
-                    <select>
-                        <option>Kategori Pekerjaan</option>
-                    </select>
-                    <select>
-                        <option>Pilih Lokasi</option>
-                    </select>
-                    <select>
-                        <option>Pilih Rating</option>
-                    </select>
-                    <select>
-                        <option>Pilih Umur</option>
-                    </select>
-                    <button class="search-btn">
-                        <i class="fas fa-search"></i> Cari
-                    </button>
+                    <select><option>Kategori Pekerjaan</option></select>
+                    <select><option>Pilih Lokasi</option></select>
+                    <select><option>Pilih Rating</option></select>
+                    <select><option>Pilih Umur</option></select>
+                    <button class="search-btn"><i class="fas fa-search"></i> Cari</button>
                 </div>
             </div>
 
             <div class="no-result">
                 <img src="https://cdn-icons-png.flaticon.com/512/953/953792.png" alt="Not Found">
-                <p>Maaf, kami tidak bisa menemukan PRT yang cocok<br>Coba
-                    pencarian lain!</p>
+                <p>Maaf, kami tidak bisa menemukan PRT yang cocok<br>Coba pencarian lain!</p>
             </div>
         </div>
+    </div>
 
-        <!-- Bootstrap 4 JS -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-        <script
-            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function toggleSidebar() {
+            document.querySelector(".sidebar").classList.toggle("minimized");
+            document.querySelector(".toggle-btn i").classList.toggle("fa-chevron-right");
+        }
+    </script>
 
-    </body>
+</body>
 </html>
